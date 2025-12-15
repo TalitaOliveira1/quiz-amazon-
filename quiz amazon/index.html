@@ -1,0 +1,91 @@
+<!-- Declara que este é um documento HTML5 -->
+<!DOCTYPE html>
+<!-- Define o idioma da página como português do Brasil -->
+<html lang="pt-br">
+<!-- Cabeça da página - contém metadados e links (não é visível) -->
+<head>
+  <!-- Define a codificação de caracteres como UTF-8 (permite usar acentos e caracteres especiais) -->
+  <meta charset="UTF-8" />
+  <!-- Configura a visualização em dispositivos móveis - largura igual ao dispositivo, escala inicial 1.0 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Título que aparece na aba do navegador -->
+  <title>Quiz Amazon</title>
+  <!-- Importa o arquivo de estilos CSS para formatar a página -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- Corpo da página - todo conteúdo visível fica aqui -->
+<body>
+
+<!-- Container fixo que sempre fica no topo da tela -->
+<div id="logo-container">
+  <!-- Imagem da logo da Amazon com identificador único para CSS/JS -->
+  <!-- src: endereço da imagem, alt: texto alternativo para acessibilidade -->
+  <img id="amazon-logo" src="https://logodownload.org/wp-content/uploads/2014/04/amazon-logo.png" alt="Logo Amazon">
+</div>
+
+<!-- Tela inicial (sobrepõe todo o conteúdo) -->
+<div id="start-overlay">
+  <!-- Cartão central branco com os controles iniciais -->
+  <div id="start-card">
+    <!-- Título principal da tela inicial -->
+    <h2>Bem-vindo ao Quiz Amazon!</h2>
+    <!-- Instrução para o usuário -->
+    <p>Digite seu nome para começar:</p>
+    <!-- Campo de entrada de texto para o nome do jogador -->
+    <!-- placeholder: texto exemplo que some quando começa a digitar -->
+    <!-- maxlength: máximo de 30 caracteres permitidos -->
+    <input id="player-input" type="text" placeholder="Seu nome" maxlength="30" />
+    <!-- Div vazia onde mensagens de erro aparecerão dinamicamente -->
+    <div id="error-message"></div>
+    <!-- Container para agrupar os dois botões lado a lado -->
+    <div class="button-container">
+      <!-- Botão principal para começar o quiz (inicialmente desabilitado) -->
+      <button id="start-btn" disabled>Começar</button>
+      <!-- Botão alternativo para pular a etapa de nome -->
+      <button id="start-anon-btn">Anônimo</button>
+    </div>
+  </div>
+</div>
+
+<!-- Container principal do quiz (começa escondido com display: none) -->
+<div id="question-container" style="display: none;">
+  <!-- Local onde o nome do jogador será exibido durante o jogo -->
+  <div id="player"></div>
+
+  <!-- Texto que mostra o progresso (ex: "Pergunta 1/10") -->
+  <div id="progress-text"></div>
+  <!-- Container da barra de progresso (a moldura) -->
+  <div id="progress-bar-container">
+    <!-- A barra colorida que cresce internamente -->
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- Container do cronômetro -->
+  <div id="timer">
+    <!-- Barra do cronômetro que diminui com o tempo -->
+    <div id="timer-bar"></div>
+    <!-- Texto que mostra os segundos restantes (30s inicialmente) -->
+    <span id="time-text">30s</span>
+  </div>
+
+  <!-- Display da pontuação atual -->
+  <!-- "Pontuação: " é texto fixo, o número vem no span -->
+  <div id="points">Pontuação: <span id="points-value">0</span></div>
+
+  <!-- Onde a pergunta atual do quiz será exibida -->
+  <!-- "Carregando..." é texto temporário até a primeira pergunta -->
+  <h2 id="question">Carregando...</h2>
+
+  <!-- Container vazio onde os botões de opção serão criados dinamicamente pelo JavaScript -->
+  <div id="options-container"></div>
+
+  <!-- Onde feedbacks como "Correto!" ou "Errado!" aparecem após responder -->
+  <div id="result"></div>
+  <!-- Comentário para desenvolvedores: indica que havia um botão aqui anteriormente -->
+</div>
+
+<!-- Importa o arquivo JavaScript que contém toda a lógica do quiz -->
+<script src="script.js"></script>
+</body>
+<!-- Fim do documento HTML -->
+</html>
